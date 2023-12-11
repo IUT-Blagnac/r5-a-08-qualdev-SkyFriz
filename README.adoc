@@ -60,7 +60,7 @@ class IsItFriday {
 }
 ---
 
-.Exemple d'image insérée en asciidoc
-image::artifacts-r303.svg[width=80%]
+.Maven test
+image::./documentation/image/TP1_test.webp
 
 == TP2...
