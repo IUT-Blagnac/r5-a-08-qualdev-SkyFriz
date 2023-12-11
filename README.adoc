@@ -61,6 +61,6 @@ class IsItFriday {
 ---
 
 .Maven test
-image::./documentation/image/TP1_test.webp
+image::./documentation/image/TP1_test.webp[Maven test TP1]
 
 == TP2...
