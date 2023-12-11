@@ -7,7 +7,7 @@ Ce dépôt concerne les rendus de mailto:A_changer@etu.univ-tlse2.fr[Jonh Doe].
 
 == TP1
 
-.Exemple de code
+.TP1 StepDefinitions.java (sans les import)
 [source,java]
 ---
 public class StepDefinitions {
