@@ -65,6 +65,9 @@ image::./documentation/image/TP1_test.webp[Maven test TP1]
 
 == TP2
 
+.TP2 Order.java
+[source,java]
+---
 package dossier;
 
 import java.util.List;
@@ -87,3 +90,4 @@ public class Order {
         return cocktails;
     }
 }
+---
