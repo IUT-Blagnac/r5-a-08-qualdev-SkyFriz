@@ -9,20 +9,4 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)  
-public class RunCucumberTest {
-
-    @Given("Romeo who wants to buy a drink")
-    public void Romeo_who_wants_to_buy_a_drink() {
-
-    }
-
-    @When("an order is declared for Juliette")
-    public void an_order_is_declared_for_Juliette(){
-
-    }
-
-    @Then("there is no cocktail in the order")
-    public void there_is_no_cocktail_in_the_order(){
-        
-    }
-}
+public class RunCucumberTest { }
