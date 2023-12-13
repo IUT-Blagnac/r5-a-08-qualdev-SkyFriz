@@ -63,4 +63,27 @@ class IsItFriday {
 .Maven test
 image::./documentation/image/TP1_test.webp[Maven test TP1]
 
-== TP2...
+== TP2
+
+package dossier;
+
+import java.util.List;
+
+public class Order {
+
+    private String owner;
+    private String target;
+    private List<String> cocktails;
+
+	public void declareOwner(String string) {
+        this.owner=string;
+	}
+
+    public void declareTarget(String string) {
+        this.target=string;
+    }
+
+    public List<String> getCocktails() {
+        return cocktails;
+    }
+}
