@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=13208700&assignment_repo_type=AssignmentRepo)
 = R5.A.08 -- Dépôt pour les TPs
 :icons: font
 :MoSCoW: https://fr.wikipedia.org/wiki/M%C3%A9thode_MoSCoW[MoSCoW]
@@ -6,17 +7,87 @@ Ce dépôt concerne les rendus de mailto:A_changer@etu.univ-tlse2.fr[Jonh Doe].
 
 == TP1
 
-.Exemple de code
+.TP1 StepDefinitions.java (sans les import)
 [source,java]
 ---
-@Given("today is Sunday")
-public void today_is_sunday() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+public class StepDefinitions {
+
+    @Given("an example scenario")
+    public void anExampleScenario() {
+    }
+
+    @When("all step definitions are implemented")
+    public void allStepDefinitionsAreImplemented() {
+    }
+
+    @Then("the scenario passes")
+    public void theScenarioPasses() {
+    }
+
+    String today;
+
+    @Given("today is Sunday")
+    public void today_is_sunday() {
+        today = "Sunday";
+    }
+
+    @Given("today is Friday")
+    public void today_is_friday() {
+        today = "Friday";
+    }
+
+    @Given("today is anything else!")
+    public void today_is_anything_else() {
+        today = "anything else!";
+    }
+
+    String response;
+
+    @When("I ask whether it's Friday yet")
+    public void i_ask_whether_it_s_friday_yet() {
+        response = IsItFriday.isItFriday(today);
+    }
+    @Then("I should be told {string}")
+    public void i_should_be_told(String string) {
+        assertEquals(string, response);
+    }
+}
+
+class IsItFriday {
+    static String isItFriday(String today) {
+        return "Friday".equals(today) ? "TGIF" : "Nope";
+    }
 }
 ---
 
-.Exemple d'image insérée en asciidoc
-image::artifacts-r303.svg[width=80%]
+.Maven test
+image::./documentation/image/TP1_test.webp[Maven test TP1]
 
-== TP2...
+== TP2
+
+.TP2 Order.java
+[source,java]
+---
+package dossier;
+
+import java.util.List;
+
+public class Order {
+
+    private String owner;
+    private String target;
+    private List<String> cocktails;
+
+	public void declareOwner(String string) {
+        this.owner=string;
+	}
+
+    public void declareTarget(String string) {
+        this.target=string;
+    }
+
+    public List<String> getCocktails() {
+        return cocktails;
+    }
+}
+---
