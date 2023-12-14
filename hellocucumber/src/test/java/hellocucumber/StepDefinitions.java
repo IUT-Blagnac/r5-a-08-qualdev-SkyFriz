@@ -2,11 +2,12 @@ package hellocucumber;
 
 import io.cucumber.java.en.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Assertions.*;
 
 public class StepDefinitions {
+
+    private String today;
+    private String actualAnswer;
 
     @Given("an example scenario")
     public void anExampleScenario() {
@@ -20,37 +21,26 @@ public class StepDefinitions {
     public void theScenarioPasses() {
     }
 
-    String today;
 
-    @Given("today is Sunday")
-    public void today_is_sunday() {
-        today = "Sunday";
+    public static class IsItFriday {
+        public static String isItFriday(String today) {
+            return today.toUpperCase().contains("FRIDAY") ? "TGIF" : "Nope";
+        }
     }
 
-    @Given("today is Friday")
-    public void today_is_friday() {
-        today = "Friday";
-    }
 
-    @Given("today is anything else!")
-    public void today_is_anything_else() {
-        today = "anything else!";
+    @Given("today is {string}")
+    public void todayIsFriday(String day) {
+        today = day;
     }
-
-    String response;
 
     @When("I ask whether it's Friday yet")
-    public void i_ask_whether_it_s_friday_yet() {
-        response = IsItFriday.isItFriday(today);
+    public void iAskWhetherItSFridayYet() {
+        actualAnswer = IsItFriday.isItFriday(today);
     }
-    @Then("I should be told {string}")
-    public void i_should_be_told(String string) {
-        assertEquals(string, response);
-    }
-}
 
-class IsItFriday {
-    static String isItFriday(String today) {
-        return "Friday".equals(today) ? "TGIF" : "Nope";
+    @Then("I should be told {string}")
+    public void iShouldBeToldString(String expectedAnswer) {
+        assert expectedAnswer.equals(actualAnswer);
     }
 }

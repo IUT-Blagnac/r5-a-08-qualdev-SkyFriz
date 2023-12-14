@@ -1,17 +1,17 @@
-Feature: Is it Friday yet?
-  Everybody wants to know when it's Friday
+Feature: Friday is TGIF
 
-  Scenario: Sunday isn't Friday
-    Given today is Sunday
+  Scenario Outline: Answers depending on the day of the week
+    Given today is "<day>"
     When I ask whether it's Friday yet
-    Then I should be told "Nope"
-
-  Scenario: Friday is Friday
-    Given today is Friday
-    When I ask whether it's Friday yet
-    Then I should be told "TGIF"
-
-  Scenario: anything else! isn't Friday
-    Given today is anything else!
-    When I ask whether it's Friday yet
-    Then I should be told "Nope"
+    Then I should be told "<answer>"
+    Examples:
+      | day            | answer |
+      | Sunday         | Nope   |
+      | Saturday       | Nope   |
+      | Friday         | TGIF   |
+      | Thursday       | Nope   |
+      | Wednesday      | Nope   |
+      | Tuesday        | Nope   |
+      | Monday         | Nope   |
+      | Friday*        | TGIF   |
+      | anything else! | Nope   |
